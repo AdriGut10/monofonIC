@@ -65,6 +65,11 @@ class TransferFunction_plugin
     //! initialise, i.e. prepare data for later usage 
     virtual void intialise( void ) {}
 
+    //! Supply f(a) a H(a) / c at the target redshift in inverse Mpc.
+    /*! File-based plug-ins with native velocity-divergence transfers can
+     *  override this hook to convert them to displacement units. */
+    virtual void set_velocity_normalisation(double) {}
+
     //! compute value of transfer function at waven umber
     virtual double compute(double k, tf_type type) const = 0;
 
